@@ -1,13 +1,23 @@
 import { useRef, useState } from "react";
+import styled from "styled-components";
 import GoalList from "../component/GoalList";
 import InputBar from "../component/InputBar";
+
+const Goal = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(to right, grey, white, grey);
+  height: 100%;
+`;
 
 export default function MonthGoal() {
   const [value, setValue] = useState("");
   const [goals, setGoals] = useState([
-    { id: 1, text: "일찍일어나기", checked: false },
-    { id: 2, text: "운동하기", checked: false },
-    { id: 3, text: "메서드공부하기", checked: false },
+    { id: 1, text: "프로그래머스 30문제 풀기", checked: false },
+    { id: 2, text: "비동기 복습하기", checked: false },
+    { id: 3, text: "리액트 훅 복습하기", checked: false },
+    { id: 4, text: "배열 메서드 학습하기", checked: false },
   ]);
 
   const onChange = (e) => {
@@ -43,7 +53,7 @@ export default function MonthGoal() {
   // input 값으로 goal.text 상태 변경
 
   return (
-    <div>
+    <Goal>
       <InputBar
         goalAdd={goalAdd}
         value={value}
@@ -51,7 +61,7 @@ export default function MonthGoal() {
         onSubmit={onSubmit}
       />
       <GoalList goals={goals} goalDelete={goalDelete} setGoals={setGoals} />
-    </div>
+    </Goal>
   );
 }
 

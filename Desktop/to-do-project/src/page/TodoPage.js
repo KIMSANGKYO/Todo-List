@@ -1,13 +1,29 @@
 import { useState } from "react";
+import styled from "styled-components";
 import InputBar from "../component/InputBar";
 import TodoList from "../component/TodoList";
+
+const Todo = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(to right, grey, white, grey);
+`;
 
 export default function TodoPage() {
   const [value, setValue] = useState("");
   const [todos, setTodos] = useState([
-    { id: 1, text: "가", checked: false },
-    { id: 2, text: "나", checked: false },
-    { id: 3, text: "다", checked: false },
+    { id: 1, text: "8시에 일어나기", checked: false },
+    { id: 2, text: "째각이 켜기", checked: true },
+    { id: 3, text: "모닝커피 마시기", checked: false },
+    { id: 4, text: "코플릿 풀기", checked: false },
+    { id: 5, text: "유어클래스 학습", checked: false },
+    { id: 6, text: "블로그 작성하기", checked: false },
+    { id: 7, text: "약 챙겨먹기", checked: false },
+    { id: 8, text: "운동하기", checked: false },
+    { id: 9, text: "메서드 공부하기", checked: false },
+    { id: 10, text: "리액트 프로젝트 구현", checked: false },
+    { id: 11, text: "스터디원 응원하기", checked: false },
   ]);
 
   const onChange = (e) => {
@@ -27,16 +43,21 @@ export default function TodoPage() {
         text,
         checked: false,
       };
-      setTodos((todos) => [...todos, newTodo]);
+      setTodos((todos) => [newTodo, ...todos]);
     }
   };
   const todoDelete = (id) => {
     setTodos((todos) => todos.filter((todo) => todo.id !== id));
   };
   return (
-    <div>
+    <Todo>
       <InputBar onChange={onChange} onSubmit={onSubmit} value={value} />
+      <p> 게이지바 구현 할까말까?</p>
+
       <TodoList todos={todos} setTodos={setTodos} todoDelete={todoDelete} />
-    </div>
+    </Todo>
   );
 }
+// {words.map((word) => (
+//   <Word word={word} key={word.id} />
+// ))}

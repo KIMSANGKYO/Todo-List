@@ -1,11 +1,17 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const TodoTag = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     padding: 0;
+    width: 90%;
   }
   li {
     display: flex;
@@ -32,16 +38,22 @@ const TodoTag = styled.div`
   .fa-trash {
     color: red;
   }
+  input {
+    width: 40px;
+  }
 `;
 
-export default function TodoList({ todos, setTodos, todoDelete }) {
+export default function TodoList({ todos, todoDelete }) {
+  // const checkHandler = () => {
+  //   setIsChecked(!isChecked);
+  // };
   return (
     <TodoTag>
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
             <div className="check-name">
-              <input type="checkbox"></input>
+              <input checked={todo.checked} type="checkbox"></input>
               <div>{todo.text}</div>
             </div>
             <div className="delete-update">

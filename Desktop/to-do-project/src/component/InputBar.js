@@ -8,7 +8,7 @@ const InputLine = styled.div`
   align-items: center;
   width: 100%;
   height: 50px;
-  background-color: greenyellow;
+  background-color: rgb(183, 249, 84);
 
   input {
     width: 300px;

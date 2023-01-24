@@ -9,9 +9,11 @@ const Top = styled.div`
   align-items: center;
   height: 50px;
   font-size: 20px;
-  background-color: pink;
+  background: linear-gradient(to bottom, violet, pink);
   padding-left: 10px;
   padding-right: 10px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
 
   img {
     width: 50px;
@@ -19,24 +21,17 @@ const Top = styled.div`
 
   i {
     font-size: 30px;
-    color: skyblue;
+    color: rgb(45, 182, 236);
   }
 `;
 
 export default function Header({ modal, setModal }) {
-  const [heads, setHeads] = useState([
-    { id: 1, text: "오늘 해야 할 일은?" },
-    { id: 2, text: "이 달의 목표는?" },
-    { id: 3, text: "달력" },
-    { id: 4, text: "비둘기" },
-    { id: 5, text: "개발자 정보" },
-  ]);
   return (
     <Top>
       <Link to="/">
         <i className="fa-sharp fa-solid fa-dove"></i>
       </Link>
-      <div>Head</div>
+      <h2>My To-Do App</h2>
 
       <Nav modal={modal} setModal={setModal} />
     </Top>

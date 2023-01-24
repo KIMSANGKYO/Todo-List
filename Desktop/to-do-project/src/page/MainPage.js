@@ -8,6 +8,7 @@ const Main = styled.div`
   justify-content: center;
   flex-direction: column;
   height: 100%;
+  background-color: beige;
 
   .main_pigeon {
     display: flex;
@@ -41,6 +42,7 @@ const Main = styled.div`
   img {
     width: 500px;
     height: 400px;
+    border-radius: 30px;
   }
 `;
 

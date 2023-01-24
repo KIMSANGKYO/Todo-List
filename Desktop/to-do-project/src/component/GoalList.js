@@ -15,9 +15,20 @@ const GoalTag = styled.div`
     font-size: 50px;
     background-color: beige;
     align-items: center;
+    justify-content: space-between;
   }
   i {
     cursor: pointer;
+  }
+  .check-list {
+    display: flex;
+    margin-left: 20px;
+  }
+  .delete-update {
+    display: flex;
+    margin-right: 50px;
+    width: 150px;
+    justify-content: space-between;
   }
   .fa-trash {
     color: red;
@@ -39,19 +50,26 @@ export default function GoalList({ goals, goalDelete, setGoals }) {
       <ul>
         {goals.map((goal) => (
           <li key={goal.id}>
-            <input type="checkbox"></input>
-            {updateMode ? (
-              <input placeholder={goal.text}></input>
-            ) : (
-              <div>{goal.text}</div>
-            )}
-            <i
-              onClick={() => {
-                goalDelete(goal.id);
-              }}
-              className="fa-sharp fa-solid fa-trash"
-            ></i>
-            <i onClick={updateToggle} className="fa-sharp fa-solid fa-pen"></i>
+            <div className="check-list">
+              <input type="checkbox"></input>
+              {updateMode ? (
+                <input placeholder={goal.text}></input>
+              ) : (
+                <div>{goal.text}</div>
+              )}
+            </div>
+            <div className="delete-update">
+              <i
+                onClick={() => {
+                  goalDelete(goal.id);
+                }}
+                className="fa-sharp fa-solid fa-trash"
+              ></i>
+              <i
+                onClick={updateToggle}
+                className="fa-sharp fa-solid fa-pen"
+              ></i>
+            </div>
           </li>
         ))}
       </ul>

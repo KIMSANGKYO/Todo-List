@@ -11,19 +11,20 @@ const Modals = styled.div`
   right: 0px;
   width: 50vw;
   height: 100vh;
-  background-color: beige;
-
+  background: linear-gradient(45deg, yellow, white, yellow);
   a {
     display: flex;
     width: 100%;
     height: 40px;
     margin: 10px;
     text-decoration: none;
-    border: 1px solid black;
+    border: 1px solid yellow;
     border-collapse: collapse;
     align-items: center;
     justify-content: center;
-    background-color: greenyellow;
+    background-color: rgb(194, 244, 121);
+    color: black;
+    font-weight: bold;
   }
   i {
     position: relative;

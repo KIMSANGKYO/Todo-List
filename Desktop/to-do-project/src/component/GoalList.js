@@ -2,36 +2,51 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const GoalTag = styled.div`
-  ul {
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-color: #ffcc80;
+  justify-content: center;
+  > ul {
     list-style: none;
-    display: flex;
-    flex-direction: column;
+    background-color: #ffcc80;
+    width: 80%;
     padding: 0;
-  }
-  li {
-    display: flex;
-    border: 1px solid black;
-    height: 100px;
-    font-size: 50px;
-    background-color: beige;
-    align-items: center;
-    justify-content: space-between;
-  }
-  i {
-    cursor: pointer;
+    margin: 0;
+
+    > li {
+      display: flex;
+      width: 100%;
+      height: 100px;
+      align-items: center;
+      margin-top: 20px;
+      background-color: #ffffb0;
+      border-radius: 30px;
+    }
   }
   .check-list {
     display: flex;
-    margin-left: 20px;
+    width: 50%;
+    > input {
+      margin-left: 20px;
+      margin-right: 20px;
+      transform: scale(1.5);
+    }
   }
   .delete-update {
     display: flex;
-    margin-right: 50px;
-    width: 150px;
-    justify-content: space-between;
+    width: 50%;
+    justify-content: flex-end;
+  }
+  .fa-pen {
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 20px;
   }
   .fa-trash {
-    color: red;
+    cursor: pointer;
+    font-size: 20px;
   }
 `;
 

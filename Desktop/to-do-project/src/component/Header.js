@@ -7,21 +7,15 @@ const Top = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
-  font-size: 20px;
-  background: linear-gradient(to bottom, violet, pink);
-  padding-left: 10px;
-  padding-right: 10px;
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
-
-  img {
-    width: 50px;
+  background-color: #ca9b52;
+  p {
+    font-weight: bold;
+    font-size: 20px;
   }
-
-  i {
-    font-size: 30px;
-    color: rgb(45, 182, 236);
+  .fa-dove {
+    font-size: 40px;
+    color: skyblue;
+    padding-left: 20px;
   }
 `;
 
@@ -29,10 +23,9 @@ export default function Header({ modal, setModal }) {
   return (
     <Top>
       <Link to="/">
-        <i className="fa-sharp fa-solid fa-dove"></i>
+        <i className="fa-sharp fa-solid fa-dove fa-2x"></i>
       </Link>
-      <h2>My To-Do App</h2>
-
+      <p>My To-Do App</p>
       <Nav modal={modal} setModal={setModal} />
     </Top>
   );

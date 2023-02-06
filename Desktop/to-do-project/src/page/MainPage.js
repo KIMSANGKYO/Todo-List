@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Modal from "../component/Modal";
 
 const Main = styled.div`
   display: flex;
@@ -8,7 +7,6 @@ const Main = styled.div`
   justify-content: center;
   flex-direction: column;
   height: 100%;
-  background-color: beige;
 
   .main_pigeon {
     display: flex;

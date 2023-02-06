@@ -11,29 +11,34 @@ const Modals = styled.div`
   right: 0px;
   width: 50vw;
   height: 100vh;
-  background: linear-gradient(45deg, yellow, white, yellow);
-  a {
+  background-color: #ca9b52;
+  border-left: 1px solid #ca9b52;
+  > a {
     display: flex;
     width: 100%;
-    height: 40px;
+    height: 60px;
     margin: 10px;
     text-decoration: none;
-    border: 1px solid yellow;
+
     border-collapse: collapse;
     align-items: center;
     justify-content: center;
-    background-color: rgb(194, 244, 121);
+    background-color: #ffffb0;
     color: black;
     font-weight: bold;
   }
-  i {
+  > i {
     position: relative;
     left: 10px;
     width: 100%;
     cursor: pointer;
+    margin-bottom: 30px;
   }
-  i:hover {
+  > i:hover {
     color: red;
+  }
+  .fa-right-from-bracket {
+    font-size: 60px;
   }
 `;
 
@@ -47,7 +52,7 @@ export default function Modal({ modal, setModal }) {
         onClick={modalOnclick}
         className="fa-sharp fa-solid fa-right-from-bracket fa-2x"
       ></i>
-
+      <Link to="/todo">투두 리스트</Link>
       <Link to="/goal">이달의 목표</Link>
       <Link to="/month">달력보기</Link>
       <Link to="/Pigeon">비둘기보기</Link>

@@ -4,19 +4,15 @@ import styled from "styled-components";
 
 const InputLine = styled.div`
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  background-color: yellowgreen;
   height: 50px;
-  background-color: rgb(183, 249, 84);
-
-  input {
-    width: 300px;
-    height: 40px;
-    margin: 20px;
-  }
-  i {
-    cursor: pointer;
+  width: 100%;
+  > input {
+    height: 30px;
+    width: 200px;
+    margin-right: 20px;
   }
 `;
 

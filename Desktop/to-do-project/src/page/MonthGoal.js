@@ -6,8 +6,6 @@ import InputBar from "../component/InputBar";
 const Goal = styled.div`
   display: flex;
   flex-direction: column;
-
-  background: linear-gradient(to right, grey, white, grey);
   height: 100%;
 `;
 
@@ -68,3 +66,6 @@ export default function MonthGoal() {
 // 체크상태
 // 수정가능 상태
 // 리스트 추가 기능 ㅇ
+
+//FIXME:
+//TODO:

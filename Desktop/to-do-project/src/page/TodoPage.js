@@ -6,8 +6,7 @@ import TodoList from "../component/TodoList";
 const Todo = styled.div`
   display: flex;
   flex-direction: column;
-
-  background: linear-gradient(to right, grey, white, grey);
+  height: 100%;
 `;
 
 export default function TodoPage() {
@@ -52,7 +51,6 @@ export default function TodoPage() {
   return (
     <Todo>
       <InputBar onChange={onChange} onSubmit={onSubmit} value={value} />
-      <p> 게이지바 구현 할까말까?</p>
 
       <TodoList todos={todos} setTodos={setTodos} todoDelete={todoDelete} />
     </Todo>

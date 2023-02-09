@@ -5,10 +5,10 @@ import Modal from "./Modal";
 
 const NavIcon = styled.div`
   .fa-bars {
-    color: black;
+    color: #004ecb;
     cursor: pointer;
-    font-size: 50px;
-    padding-right: 20px;
+    font-size: 40px;
+    padding-right: 40px;
   }
 `;
 export default function Nav({ modal, setModal }) {

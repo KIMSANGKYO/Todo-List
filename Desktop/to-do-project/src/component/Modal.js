@@ -11,8 +11,8 @@ const Modals = styled.div`
   right: 0px;
   width: 50vw;
   height: 100vh;
-  background-color: #ca9b52;
-  border-left: 1px solid #ca9b52;
+  background-color: #f2f3fc;
+
   > a {
     display: flex;
     width: 100%;
@@ -23,9 +23,12 @@ const Modals = styled.div`
     border-collapse: collapse;
     align-items: center;
     justify-content: center;
-    background-color: #ffffb0;
+    background-color: white;
     color: black;
     font-weight: bold;
+  }
+  > a:hover {
+    border-bottom: 2px solid #e81e62;
   }
   > i {
     position: relative;
@@ -35,7 +38,7 @@ const Modals = styled.div`
     margin-bottom: 30px;
   }
   > i:hover {
-    color: red;
+    color: #e81e62;
   }
   .fa-right-from-bracket {
     font-size: 60px;

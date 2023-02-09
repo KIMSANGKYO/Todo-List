@@ -7,15 +7,17 @@ const Top = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ca9b52;
+  background-color: #75a7ff;
+  color: white;
+  height: 100px;
   p {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
   }
   .fa-dove {
     font-size: 40px;
-    color: skyblue;
-    padding-left: 20px;
+    color: #004ecb;
+    padding-left: 40px;
   }
 `;
 

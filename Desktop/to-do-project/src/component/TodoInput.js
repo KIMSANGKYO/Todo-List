@@ -1,9 +1,7 @@
 import { useRef, useState } from "react";
-import { useActionData } from "react-router-dom";
 import styled from "styled-components";
-import useFetch from "../hooks/useFetch";
 
-const InputLine = styled.div`
+const TodoInputLine = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,12 +22,13 @@ const InputLine = styled.div`
   }
 `;
 
-export default function InputBar({ goals }) {
-  const [input, setInput] = useState("");
+export default function TodoInput({ todo }) {
+  const [todoInput, setTodoInput] = useState("");
   const nextId = useRef(0);
-  const goalAdd = (e) => {
+  const todoAdd = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3001/goals/`, {
+    console.log(todo);
+    fetch(`http://localhost:3001/todos/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +36,7 @@ export default function InputBar({ goals }) {
       // body 에 보낼 때 json 파일로 변경
       body: JSON.stringify({
         id: nextId.current,
-        text: input,
+        text: todoInput,
         checked: false,
       }),
     }).then((res) => {
@@ -45,25 +44,25 @@ export default function InputBar({ goals }) {
       if (res.ok) {
         alert("생성 완료");
         nextId.current += 1;
-        setInput("");
+        setTodoInput("");
         window.location.reload();
       }
     });
   };
 
   return (
-    <InputLine>
+    <TodoInputLine>
       <input
         placeholder="목표를 추가해주세요"
         type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={todoInput}
+        onChange={(e) => setTodoInput(e.target.value)}
       ></input>
       <i
-        onClick={goalAdd}
+        onClick={todoAdd}
         role="button"
         className="fa-sharp fa-solid fa-circle-plus fa-2x"
       ></i>
-    </InputLine>
+    </TodoInputLine>
   );
 }

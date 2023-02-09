@@ -1,0 +1,76 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "text": "8시에 일어나기",
+      "checked": false
+    },
+    {
+      "id": 2,
+      "text": "째각이 켜기",
+      "checked": true
+    },
+    {
+      "id": 3,
+      "text": "모닝커피 마시기",
+      "checked": false
+    },
+    {
+      "id": 4,
+      "text": "코플릿 풀기",
+      "checked": false
+    },
+    {
+      "id": 5,
+      "text": "유어클래스 학습",
+      "checked": false
+    },
+    {
+      "id": 6,
+      "text": "블로그 작성하기",
+      "checke": false
+    },
+    {
+      "id": 7,
+      "text": "약 챙겨먹기",
+      "checked": false
+    },
+    {
+      "id": 8,
+      "text": "운동하기",
+      "checked": false
+    },
+    {
+      "id": 9,
+      "text": "메서드 공부하기",
+      "checked": false
+    },
+    {
+      "id": 10,
+      "text": "리액트 프로젝트 구현",
+      "checked": false
+    },
+    {
+      "id": 11,
+      "text": "스터디원 응원하기",
+      "checked": false
+    },
+    {
+      "id": 12,
+      "text": "sadasdasdsa",
+      "checked": false
+    }
+  ],
+  "goals": [
+    {
+      "id": 29,
+      "text": "안녕하세요",
+      "checked": false
+    },
+    {
+      "id": 30,
+      "text": "추가중",
+      "checked": false
+    }
+  ]
+}

@@ -5,12 +5,10 @@ const TodoTag = styled.div`
   display: flex;
   width: 100%;
   height: auto;
-  background-color: #ffcc80;
   justify-content: center;
 
   > ul {
     list-style: none;
-    background-color: #ffcc80;
     width: 80%;
     padding: 0;
     margin: 0;
@@ -18,10 +16,10 @@ const TodoTag = styled.div`
     > li {
       display: flex;
       width: 100%;
-      height: 100px;
+      height: 80px;
       align-items: center;
       margin-top: 20px;
-      background-color: #ffffb0;
+      background-color: #f2f3fc;
       border-radius: 30px;
     }
   }
@@ -29,7 +27,7 @@ const TodoTag = styled.div`
     display: flex;
     width: 50%;
     > input {
-      margin-left: 20px;
+      margin-left: 30px;
       margin-right: 20px;
       transform: scale(1.5);
     }
@@ -41,7 +39,7 @@ const TodoTag = styled.div`
   }
   .fa-pen {
     margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 30px;
     cursor: pointer;
     font-size: 20px;
   }
@@ -51,30 +49,98 @@ const TodoTag = styled.div`
   }
 `;
 
-export default function TodoList({ todos, todoDelete }) {
-  // const checkHandler = () => {
-  //   setIsChecked(!isChecked);
-  // };
+export default function TodoList({ todo }) {
+  const [isTodoCheck, setIsTodoCheck] = useState(todo.checked);
+  const [todoUpdateMode, setTodoUpdateMod] = useState(false);
+  const [todoUpdateInput, setTodoUpdateInput] = useState("");
+
+  const isTodoDone = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:3001/todos/${todo.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...todo,
+        checked: !isTodoCheck,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        setIsTodoCheck(!isTodoCheck);
+      }
+    });
+  };
+
+  const todoDelete = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:3001/todos/${todo.id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        alert("삭제완료");
+        window.location.reload();
+      }
+    });
+    if (todo.id === 0) {
+      return null;
+    }
+  };
+
+  const todoUpdate = () => {
+    setTodoUpdateMod(true);
+  };
+
+  const todoUpdateComplete = () => {
+    fetch(`http://localhost:3001/todos/${todo.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...todo,
+        text: todoUpdateInput,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        setTodoUpdateMod(false);
+        alert("수정완료");
+        window.location.reload();
+      }
+    });
+  };
+
   return (
     <TodoTag>
       <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <div className="check-name">
-              <input checked={todo.checked} type="checkbox"></input>
+        <li>
+          <div className="check-name">
+            <input
+              type="checkbox"
+              checked={isTodoCheck}
+              onChange={isTodoDone}
+            ></input>
+
+            {todoUpdateMode ? (
+              <div>
+                <input
+                  value={todoUpdateInput}
+                  onChange={(e) => setTodoUpdateInput(e.target.value)}
+                ></input>
+                <button
+                  className="edit-button"
+                  onClick={todoUpdateComplete}
+                ></button>
+              </div>
+            ) : (
               <div>{todo.text}</div>
-            </div>
-            <div className="delete-update">
-              <i
-                onClick={() => {
-                  todoDelete(todo.id);
-                }}
-                className="fa-sharp fa-solid fa-trash"
-              ></i>
-              <i className="fa-sharp fa-solid fa-pen"></i>
-            </div>
-          </li>
-        ))}
+            )}
+          </div>
+          <div className="delete-update">
+            <i className="fa-sharp fa-solid fa-trash" onClick={todoDelete}></i>
+            <i className="fa-sharp fa-solid fa-pen" onClick={todoUpdate}></i>
+          </div>
+        </li>
       </ul>
     </TodoTag>
   );
